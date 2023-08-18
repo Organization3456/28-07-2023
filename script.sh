@@ -1,9 +1,10 @@
 #!/bin/bash
 # find /var/lib/jenkins/jobs/pipeline-for-slack-testing/builds/ -name "*log" -mtime -1 | xargs ls -l | awk '{print $9}' | cut -d "/" -f 8
 jwd="/var/lib/jenkins/jobs"
+rm -fr 
 #oneDay=`find . -name "*log" -mtime -1`
 #job builds directory
-jb="$jwd/pipeline-for-slack-testing/builds/builds"
+jb="$jwd/pipeline-for-slack-testing/builds"
 oneDay="find $jb/ -name "*log" -mtime -1"
 #sudo $oneDay $wd/$job >> oneday.txt
 sudo $oneDay | xargs ls -l > oneday.txt
